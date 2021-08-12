@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- <meta http-equiv="refresh" content="1"> -->
+</head>
+
+<body>
+  <div class="container">
+    <div class="titulo">
+      CONTROLE ESTATÍSTICO DE TRETA
+    </div>
+    <div class="corpo">
+      <div>
+        ESTAMOS CONVIVENDO HÁ
+      </div>
+      <div class="placar">
+        <div id="diaContador">00</div>
+        <div id="horaContador">00</div>
+        <div id="minutoContador">00</div>
+        <div id="segundoContador">00</div>
+      </div>
+      <div>
+        SEM TRETAR ENTRE OS INTEGRANTES DO GRUPO.
+      </div>
+      <div>
+        NOSSO RECORDE É
+      </div>
+      <div class="placar">
+        <div id="diaRecorde">00</div>
+        <div id="horaRecorde">00</div>
+        <div id="minutoRecorde">00</div>
+        <div id="segundoRecorde">00</div>
+      </div>
+    </div>
+    <div>
+      <div class="rodape">
+        <div>
+          COLABORE PARA MELHORAR O ÍNDICE
+        </div>
+        <div>
+          MAS SE OCORRER TRETA ZERE O CONTADOR
+        </div>
+      </div>
+      <div class="rodape botao">
+        <div class="col">
+          <a class="btn btn-danger" href="/zerar">TRETA OCORRIDA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function startTimer(duracao, recorde, contadorDisplay, recordeDisplay) {
+      let tempo = duracao;
+      let dia;
+      let hora;
+      let minuto;
+      let segundo;
+
+      setInterval(function() {
+        dia = parseInt(tempo / (60 * 60 * 24), 10);
+        hora = parseInt(tempo / (60 * 60), 10);
+        minuto = parseInt(tempo / 60, 10);
+        segundo = parseInt(tempo % 60, 10);
+
+        dia = dia < 10 ? "0" + dia : dia;
+        hora = hora < 10 ? "0" + hora : hora;
+        minuto = minuto < 10 ? "0" + minuto : minuto;
+        segundo = segundo < 10 ? "0" + segundo : segundo;
+
+        contadorDisplay[0].textContent = dia;
+        contadorDisplay[1].textContent = hora;
+        contadorDisplay[2].textContent = minuto;
+        contadorDisplay[3].textContent = segundo;
+
+        dia = parseInt(recorde / (60 * 60 * 24), 10);
+        hora = parseInt(recorde / (60 * 60), 10);
+        minuto = parseInt(recorde / 60, 10);
+        segundo = parseInt(recorde % 60, 10);
+
+        dia = dia < 10 ? "0" + dia : dia;
+        hora = hora < 10 ? "0" + hora : hora;
+        minuto = minuto < 10 ? "0" + minuto : minuto;
+        segundo = segundo < 10 ? "0" + segundo : segundo;
+
+        recordeDisplay[0].textContent = dia;
+        recordeDisplay[1].textContent = hora;
+        recordeDisplay[2].textContent = minuto;
+        recordeDisplay[3].textContent = segundo;
+
+        if (++tempo < 0) {
+          tempo = duracao;
+        }
+      }, 1000);
+    }
+
+    window.onload = function() {
+      let recorde = '<%= recorde %>';
+      let contador = 0;
+      let contadorDisplay = [
+        document.querySelector('#diaContador'),
+        document.querySelector('#horaContador'),
+        document.querySelector('#minutoContador'),
+        document.querySelector('#segundoContador')
+      ];
+
+      let recordeDisplay = [
+        document.querySelector('#diaRecorde'),
+        document.querySelector('#horaRecorde'),
+        document.querySelector('#minutoRecorde'),
+        document.querySelector('#segundoRecorde')
+      ];
+
+      startTimer(contador, recorde, contadorDisplay, recordeDisplay);
+    };
+  </script>
+</body>
+
+</html>

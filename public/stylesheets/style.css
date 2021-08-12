@@ -1,0 +1,57 @@
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 36px;
+  margin: 1%;
+  padding: 0;
+}
+
+.titulo {
+  background-color: rgba(0, 151, 70, 1);
+  color: rgba(250, 250, 250, 1);
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+  padding: 1%;
+  text-align: center;
+}
+
+.corpo {
+  margin: 2% 0;
+  text-align: center;
+}
+
+.placar {
+  display: flex;
+  justify-content: center;
+}
+
+.placar>div {
+  background-color: rgba(250, 50, 50, 1);
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.rodape {
+  background-color: rgba(0, 151, 70, 1);
+  color: rgba(250, 250, 250, 1);
+  font-weight: bold;
+  margin: 0;
+  padding: 1%;
+  text-align: center;
+}
+
+.botao {
+  padding-bottom: 2%;
+}
+
+.botao a {
+  background-image: linear-gradient(right, rgba(250, 50, 50, 1), rgba(220, 45, 45));
+  background-image: -o-linear-gradient(right, rgba(250, 50, 50, 1), rgba(220, 45, 45));
+  background-image: -moz-linear-gradient(right, rgba(250, 50, 50, 1), rgba(220, 45, 45));
+  background-image: -webkit-linear-gradient(right, rgba(250, 50, 50, 1), rgba(220, 45, 45));
+  border-radius: 1rem;
+  color: rgba(250, 250, 250, 1);
+  padding: 1.5rem;
+  text-decoration: none;
+}
