@@ -78,6 +78,8 @@
         contadorDisplay[2].textContent = minuto;
         contadorDisplay[3].textContent = segundo;
 
+        recorde = recorde > tempo ? recorde : tempo;
+
         dia = parseInt(recorde / (60 * 60 * 24), 10);
         hora = parseInt(recorde / (60 * 60), 10);
         minuto = parseInt(recorde / 60, 10);
@@ -101,7 +103,7 @@
 
     window.onload = function() {
       let recorde = '<%= recorde %>';
-      let contador = 0;
+      let contador = '<%= ultimo %>';
       let contadorDisplay = [
         document.querySelector('#diaContador'),
         document.querySelector('#horaContador'),

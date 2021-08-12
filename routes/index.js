@@ -5,8 +5,13 @@ const router = express.Router();
 const Recorde = require('../model/recorde');
 
 router.get('/', async function(req, res, next) {
+  let data = new Date();
+  let ultimo = await Recorde.max('data');
+  ultimo = Math.round(data / 1000) - Math.round(ultimo / 1000);
+  ultimo = isNaN(ultimo) ? 0 : ultimo;
+
   let recorde = await Recorde.max('tempo');
-  res.render('index', { title: 'TRETAS', recorde: recorde });
+  res.render('index', { title: 'TRETAS', ultimo, recorde });
 });
 
 router.get('/zerar', async function(req, res, next) {
