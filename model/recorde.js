@@ -9,7 +9,7 @@ const Recorde = database.define('recorde', {
     primaryKey: true
   },
   data: {
-    type: Sequelize.DATE,
+    type: Sequelize.DOUBLE,
     allowNull: false
   },
   tempo: {

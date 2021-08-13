@@ -53,11 +53,9 @@ app.use(function(err, req, res, next) {
 
 (async() => {
   const database = require('./utils/db');
-  const Recorde = require('./model/recorde');
 
   try {
     const resultado = await database.sync();
-    const criar = await Recorde.create({ data: new Date(), tempo: 0 });
     console.log('Banco Criado');
   } catch (error) {
     console.log(error);
